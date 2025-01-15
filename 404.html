@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/theme-toggle.js"></script>
+    <script src="./js/date-time.js"></script>
+</head>
+<body>
+    <header class="header-container">
+        <div>
+            <h1>LES</h1>
+        </div>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle">
+            <span class="mdi mdi-theme-light-dark" style="font-size: 24px;"></span>
+        </button>
+    </header>
+
+    <main class="error-container">
+        <h1>404</h1>
+        <p>Oops! The page you're looking for doesn't exist.</p>
+        <a href="./index.html" class="cta-button">Back to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; Lester Ivan Dalaguit | <span id="current-datetime"></span></p>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+    </footer>
+
+    <style>
+        .error-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .error-container h1 {
+            font-size: 6rem;
+            margin: 20px 0;
+        }
+
+        .error-container p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: var(--link-color);
+            color: var(--background-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--text-color);
+            color: var(--background-color);
+        }
+    </style>
+</body>
+</html>

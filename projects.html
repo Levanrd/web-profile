@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/theme-toggle.js"></script>
+    <script src="./js/date-time.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const projectCards = document.querySelectorAll(".project-cardB");
+
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add("show");
+                  } else {
+                      entry.target.classList.remove("show");
+                  }
+              });
+          }, {
+              threshold: 0.5, // Adjust threshold to your preference
+          });
+
+          projectCards.forEach((card) => observer.observe(card));
+      });
+  </script>
+</head>
+<body>
+    <header class="header-container">
+        <div>
+            <h1>LES</h1>
+        </div>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle">
+            <span class="mdi mdi-theme-light-dark" style="font-size: 24px;"></span>
+        </button>
+    </header>
+
+    <main class="projects-containerB">
+        <h1>Featured Projects</h1>
+        <div class="project-list">
+          <div class="project-cardB">
+            <div class="project-image">
+                <img src="./img/lifesure/lifesure-hero.png" alt="Insurance Website">
+                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+            </div>
+            <div class="project-details">
+                <p class="category">Web Development</p>
+                <h2>Insurance Website</h2>
+                <p>A website developed for an insurance company using HTML, CSS, and JavaScript.</p>
+                <div class="project-icons">
+                    <span class="mdi mdi-language-html5" title="HTML5"></span>
+                    <span class="mdi mdi-language-css3" title="CSS3"></span>
+                    <span class="mdi mdi-language-javascript" title="JavaScript"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-cardB">
+            <div class="project-image">
+                <img src="./img/aquas/aquas-web.png" alt="Water Refilling Website">
+                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+            </div>
+            <div class="project-details">
+                <p class="category">Web Development</p>
+                <h2>Water Refilling Website</h2>
+                <p>A website built for a water refilling business using HTML, CSS, and JavaScript.</p>
+                <div class="project-icons">
+                    <span class="mdi mdi-language-html5" title="HTML5"></span>
+                    <span class="mdi mdi-language-css3" title="CSS3"></span>
+                    <span class="mdi mdi-language-javascript" title="JavaScript"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-cardB">
+            <div class="project-image">
+                <img src="./img/brgy/brgy-web.png" alt="Barangay Portal">
+                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+            </div>
+            <div class="project-details">
+                <p class="category">Web Application</p>
+                <h2>Barangay Portal</h2>
+                <p>A web application for barangay registration, certificate filing, employment applications, and case management using Vue.js, Vuetify, and Nuxt.js.</p>
+                <div class="project-icons">
+                    <span class="mdi mdi-language-html5" title="HTML5"></span>
+                    <span class="mdi mdi-language-css3" title="CSS3"></span>
+                    <span class="mdi mdi-language-javascript" title="JavaScript"></span>
+                    <span class="mdi mdi-vuejs" title="Vue.js"></span>
+                    <span class="mdi mdi-nuxt" title="Nuxt.js"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-cardB">
+            <div class="project-image">
+                <img src="./img/alumni/alumni-web.png" alt="Alumni Portal">
+                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+            </div>
+            <div class="project-details">
+                <p class="category">Web Application</p>
+                <h2>Alumni Portal</h2>
+                <p>A portal for alumni management and engagement using Vue.js, Vuetify, and Nuxt.js.</p>
+                <div class="project-icons">
+                    <span class="mdi mdi-language-html5" title="HTML5"></span>
+                    <span class="mdi mdi-language-css3" title="CSS3"></span>
+                    <span class="mdi mdi-language-javascript" title="JavaScript"></span>
+                    <span class="mdi mdi-vuejs" title="Vue.js"></span>
+                    <span class="mdi mdi-nuxt" title="Nuxt.js"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-cardB">
+            <div class="project-image">
+                <img src="./img/tr/tw-web.png" alt="Twin Rams Media">
+                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+            </div>
+            <div class="project-details">
+                <p class="category">Digital Marketing</p>
+                <h2>Twin Rams Media</h2>
+                <p>A website for a digital marketing agency specializing in media solutions.</p>
+                <div class="project-icons">
+                    <span class="mdi mdi-language-html5" title="HTML5"></span>
+                    <span class="mdi mdi-language-css3" title="CSS3"></span>
+                    <span class="mdi mdi-language-javascript" title="JavaScript"></span>
+                    <span class="mdi mdi-wordpress" title="WordPress"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-cardB">
+            <div class="project-image">
+                <img src="./img/tdt/tdt-web.png" alt="The Dream Team Digital Marketing">
+                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+            </div>
+            <div class="project-details">
+                <p class="category">Digital Marketing</p>
+                <h2>The Dream Team Digital Marketing</h2>
+                <p>A website for a digital marketing agency focused on branding and marketing solutions.</p>
+                <div class="project-icons">
+                    <span class="mdi mdi-language-html5" title="HTML5"></span>
+                    <span class="mdi mdi-language-css3" title="CSS3"></span>
+                    <span class="mdi mdi-language-javascript" title="JavaScript"></span>
+                    <span class="mdi mdi-wordpress" title="WordPress"></span>
+                </div>
+            </div>
+        </div>        
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Lester Ivan Dalaguit | <span id="current-datetime"></span></p>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+    </footer>
+
+    <style>
+        .projects-containerB {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .projects-containerB h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        /* .project-cardB {
+            display: flex;
+            background-color: var(--card-background-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        } */
+        .project-cardB {
+            display: flex;
+            background-color: var(--card-background-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .project-cardB.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-image {
+            position: relative;
+            flex: 0 0 40%;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 1.5rem;
+            padding: 5px;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        .project-details {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .project-details .category {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--link-color);
+        }
+
+        .project-details h2 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .project-details p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .project-icons {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .project-icons span {
+            font-size: 30px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .project-icons span:hover {
+            color: var(--link-color);
+        }
+    </style>
+</body>
+</html>

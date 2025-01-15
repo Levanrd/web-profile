@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/theme-toggle.js"></script>
+    <script src="./js/date-time.js"></script>
+</head>
+<body>
+    <header class="header-container">
+        <div>
+            <h1>LES</h1>
+        </div>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle">
+            <span class="mdi mdi-theme-light-dark" style="font-size: 24px;"></span>
+        </button>
+    </header>
+
+    <main class="contact-container">
+        <h1>Contact Me</h1>
+        <p>Feel free to reach out via email or WhatsApp for collaborations, freelance opportunities, or inquiries.</p>
+
+        <div class="contact-options">
+            <div class="contact-option">
+                <span class="mdi mdi-email-outline" style="font-size: 50px;"></span>
+                <h2>Email</h2>
+                <a href="mailto:lesterivan.dalaguit@gmail.com" class="contact-link">lesterivan.dalaguit@gmail.com</a>
+            </div>
+            <div class="contact-option">
+                <span class="mdi mdi-whatsapp" style="font-size: 50px; color: #25D366;"></span>
+                <h2>WhatsApp</h2>
+                <a href="https://wa.me/639660476105" class="contact-link" target="_blank">+63 966 047 6105</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Lester Ivan Dalaguit | <span id="current-datetime"></span></p>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+    </footer>
+
+    <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contact-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-container p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--card-background-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-option h2 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .contact-link {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .contact-link:hover {
+            color: var(--text-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer a {
+            color: var(--link-color);
+            margin: 0 5px;
+            text-decoration: none;
+        }
+    </style>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/theme-toggle.js"></script>
+    <script src="./js/date-time.js"></script>
+</head>
+<body>
+    <header class="header-container">
+        <div>
+            <h1>LES</h1>
+        </div>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle">
+            <span class="mdi mdi-theme-light-dark" style="font-size: 24px;"></span>
+        </button>
+    </header>
+
+    <main class="contact-container">
+        <h1>Contact Me</h1>
+        <p>Feel free to reach out for collaborations, freelance opportunities, or just to say hi!</p>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Send Message</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; Lester Ivan Dalaguit | <span id="current-datetime"></span></p>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+    </footer>
+
+    <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contact-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-container p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            background: var(--card-background-color);
+            color: var(--text-color);
+        }
+
+        .cta-button {
+            background-color: var(--link-color);
+            color: var(--background-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--text-color);
+            color: var(--background-color);
+        }
+    </style>
+</body>
+</html> -->

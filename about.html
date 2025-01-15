@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/theme-toggle.js"></script>
+    <script src="./js/date-time.js"></script>
+</head>
+<body>
+    <header class="header-container">
+        <div>
+            <h1>LES</h1>
+        </div>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle">
+            <span class="mdi mdi-theme-light-dark" style="font-size: 24px;"></span>
+        </button>
+    </header>
+
+    <main class="about-container">
+        <section class="self-summary">
+            <div class="profile-picture-container">
+                <img src="./img/backround.webp" alt="Lester Ivan Dalaguit" class="profile-picture">
+            </div>
+            <h1>Lester Ivan Dalaguit</h1>
+            <p class="tagline">Software Developer</p>
+            <p class="summary">
+                I am a dedicated software developer with experience in building scalable web applications.
+                My expertise spans both front-end and back-end technologies, delivering user-friendly and robust solutions.
+            </p>
+        </section>
+
+        <section class="about-grid">
+            <div class="about-card">
+              <h2>Experience</h2>
+              <p><strong>Freelance Software Developer</strong></p>
+              <span class="theme-sensitive-text">Self-employed (Nov 2023 - Present)</span>
+              <p><strong>OJT & Front-End Developer</strong></p>
+              <span class="theme-sensitive-text">Infosoft Studio (May 2023 - Nov 2023)</span>
+              <p><strong>WordPress & Shopify Developer</strong></p>
+              <span class="theme-sensitive-text">Twin Rams Media (May 2022 - Mar 2023)</span>
+              <p><strong>WordPress & SEO Specialist</strong></p>
+              <span class="theme-sensitive-text">The Dream Team Digital Marketing PH (May 2020 - May 2022)</span>
+          </div>        
+            <div class="about-card">
+                <h2>Education</h2>
+                <p><strong>Diploma in Information Technology</strong></p>
+                <p>Interface Computer College (2020 - 2024)</p>
+            </div>
+            <div class="about-card">
+                <h2>Skills</h2>
+                <div class="tools-icons">
+                  <span class="mdi mdi-language-html5" style="font-size: 30px;" title="HTML5"></span>
+                  <span class="mdi mdi-language-css3" style="font-size: 30px;" title="CSS3"></span>
+                  <span class="mdi mdi-sass" style="font-size: 30px;" title="SASS"></span>
+                  <span class="mdi mdi-language-javascript" style="font-size: 30px;" title="JavaScript"></span>
+                  <span class="mdi mdi-language-typescript" style="font-size: 30px;" title="TypeScript"></span>
+                  <span class="mdi mdi-vuejs" style="font-size: 30px;" title="Vue.js"></span>
+                  <span class="mdi mdi-nuxt" style="font-size: 30px;" title="Nuxt.js"></span>
+                  <span class="mdi mdi-vuetify" style="font-size: 30px;" title="Vuetify"></span>
+                  <span class="mdi mdi-nodejs" style="font-size: 30px;" title="Node.js"></span>
+                  <span class="mdi mdi-language-php" style="font-size: 30px;" title="PHP"></span>
+                  <span class="mdi mdi-laravel" style="font-size: 30px;" title="Laravel"></span>
+                  <span class="mdi mdi-wordpress" style="font-size: 30px;" title="WordPress"></span>
+                  <span class="mdi mdi-bootstrap" style="font-size: 30px;" title="Bootstrap"></span>
+                  <span class="mdi mdi-microsoft-visual-studio-code" style="font-size: 30px;" title="VS Code"></span>
+                  <span class="mdi mdi-git" style="font-size: 30px;" title="Git"></span>
+                  <span class="mdi mdi-github" style="font-size: 30px;" title="GitHub"></span>
+                  <span class="mdi mdi-bitbucket" style="font-size: 30px;" title="Bitbucket"></span>
+                  <span class="mdi mdi-docker" style="font-size: 30px;" title="Docker"></span>
+                  <span class="mdi mdi-database-search" style="font-size: 30px;" title="Database"></span>
+                  <span class="mdi mdi-google-analytics" style="font-size: 30px;" title="Google Analytics"></span>
+              </div>
+            </div>
+            <div class="about-card">
+                <h2>Get in Touch</h2>
+                <p>I'm available for collaboration and freelance opportunities.</p>
+                <a href="./contact.html" class="cta-button">Contact Me</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Lester Ivan Dalaguit | <span id="current-datetime"></span></p>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+    </footer>
+
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Inter', sans-serif;
+          background-color: var(--background-color);
+          color: var(--text-color);
+          background-image: var(--background-image);
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-container nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .theme-toggle {
+            background-color: var(--card-background-color);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .about-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .self-summary {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .profile-picture-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--link-color);
+            margin-bottom: 20px;
+        }
+
+        .summary {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .about-card {
+            background-color: var(--card-background-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card span {
+            color: var(--text-color);
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: var(--link-color);
+            color: var(--background-color);
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: var(--text-color);
+            color: var(--background-color);
+        }
+    </style>
+</body>
+</html>
