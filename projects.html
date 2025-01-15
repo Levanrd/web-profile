@@ -27,12 +27,24 @@
 
           projectCards.forEach((card) => observer.observe(card));
       });
+
+      function openPopup(url, title) {
+          const popupWidth = 800;
+          const popupHeight = 600;
+          const left = (window.screen.width / 2) - (popupWidth / 2);
+          const top = (window.screen.height / 2) - (popupHeight / 2);
+          window.open(
+              url, 
+              title, 
+              `width=${popupWidth},height=${popupHeight},top=${top},left=${left},resizable,scrollbars=yes,status=no`
+          );
+      }
   </script>
 </head>
 <body>
     <header class="header-container">
         <div>
-            <h1>LES</h1>
+            <h1>LESTER</h1>
         </div>
         <nav>
             <a href="./index.html">Home</a>
@@ -159,9 +171,9 @@
     </main>
 
     <footer>
-        <p>&copy; Lester Ivan Dalaguit | <span id="current-datetime"></span></p>
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
+      <p>&copy; Lester Ivan Dalaguit | <span id="current-datetime"></span></p>
+      <a onclick="openPopup('https://www.linkedin.com/in/lester-ivan-dalaguit-aa0b15240/', 'LinkedIn')" href="#">LinkedIn</a>
+      <a onclick="openPopup('https://github.com/Levanrd', 'GitHub')" href="#">GitHub</a>
     </footer>
 
     <style>
