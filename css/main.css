@@ -4,7 +4,7 @@
   --card-background-color: rgba(22, 27, 34, 0.85);
   --link-color: #58a6ff;
   /* --background-image: url('../img/backgroundB.webp'); */
-  --text-secondary-color: rgb(193, 15, 15);
+  --text-secondary-color: rgb(171, 171, 171);
 }
 
 html {
@@ -24,6 +24,8 @@ html {
 .theme-sensitive-text {
   color: var(--text-secondary-color);
   transition: color 0.3s ease;
+  font-size: small;
+  margin: 0;
 }
 
 body {

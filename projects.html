@@ -7,8 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/carousel.css">
     <script src="./js/theme-toggle.js"></script>
     <script src="./js/date-time.js"></script>
+    <script src="./js/carousel.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
           const projectCards = document.querySelectorAll(".project-cardB");
@@ -63,7 +65,12 @@
           <div class="project-cardB">
             <div class="project-image">
                 <img src="./img/lifesure/lifesure-hero.png" alt="Insurance Website">
-                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+                <img src="./img/lifesure/lifesure1a.png" alt="Insurance Website" style="display: none;">
+                <img src="./img/lifesure/lifesure1b.png" alt="Insurance Website" style="display: none;">
+                <img src="./img/lifesure/lifesure1c.png" alt="Insurance Website" style="display: none;">
+                <img src="./img/lifesure/lifesure1d.png" alt="Insurance Website" style="display: none;">
+                <img src="./img/lifesure/lifesure1e.png" alt="Insurance Website" style="display: none;">
+                <img src="./img/lifesure/lifesure1f.png" alt="Insurance Website" style="display: none;">
             </div>
             <div class="project-details">
                 <p class="category">Web Development</p>
@@ -80,7 +87,14 @@
         <div class="project-cardB">
             <div class="project-image">
                 <img src="./img/aquas/aquas-web.png" alt="Water Refilling Website">
-                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+                <img src="./img/aquas/aquas1a.png" alt="Water Refilling Website">
+                <img src="./img/aquas/aquas1b.png" alt="Water Refilling Website">
+                <img src="./img/aquas/aquas1c.png" alt="Water Refilling Website">
+                <img src="./img/aquas/aquas1d.png" alt="Water Refilling Website">
+                <img src="./img/aquas/aquas1e.png" alt="Water Refilling Website">
+                <img src="./img/aquas/aquas1f.png" alt="Water Refilling Website">
+                <img src="./img/aquas/aquas1g.png" alt="Water Refilling Website">
+                <img src="./img/aquas/aquas1h.png" alt="Water Refilling Website">
             </div>
             <div class="project-details">
                 <p class="category">Web Development</p>
@@ -97,7 +111,7 @@
         <div class="project-cardB">
             <div class="project-image">
                 <img src="./img/brgy/brgy-web.png" alt="Barangay Portal">
-                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+                <img src="./img/brgy/brgy-dash.png" alt="Barangay Portal">
             </div>
             <div class="project-details">
                 <p class="category">Web Application</p>
@@ -116,7 +130,7 @@
         <div class="project-cardB">
             <div class="project-image">
                 <img src="./img/alumni/alumni-web.png" alt="Alumni Portal">
-                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+                <img src="./img/alumni/alumni-dash.png" alt="Alumni Portal">
             </div>
             <div class="project-details">
                 <p class="category">Web Application</p>
@@ -135,7 +149,13 @@
         <div class="project-cardB">
             <div class="project-image">
                 <img src="./img/tr/tw-web.png" alt="Twin Rams Media">
-                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+                <img src="./img/tr/tw1a.png" alt="Twin Rams Media">
+                <img src="./img/tr/tw1b.png" alt="Twin Rams Media">
+                <img src="./img/tr/tw1c.png" alt="Twin Rams Media">
+                <img src="./img/tr/tw1d.png" alt="Twin Rams Media">
+                <img src="./img/tr/tw1e.png" alt="Twin Rams Media">
+                <img src="./img/tr/tw1f.png" alt="Twin Rams Media">
+                <img src="./img/tr/tw1g.png" alt="Twin Rams Media">
             </div>
             <div class="project-details">
                 <p class="category">Digital Marketing</p>
@@ -153,7 +173,10 @@
         <div class="project-cardB">
             <div class="project-image">
                 <img src="./img/tdt/tdt-web.png" alt="The Dream Team Digital Marketing">
-                <a href="#" class="project-link mdi mdi-open-in-new"></a>
+                <img src="./img/tdt/tdt1a.png" alt="The Dream Team Digital Marketing">
+                <img src="./img/tdt/tdt1b.png" alt="The Dream Team Digital Marketing">
+                <img src="./img/tdt/tdt1c.png" alt="The Dream Team Digital Marketing">
+                <img src="./img/tdt/tdt1d.png" alt="The Dream Team Digital Marketing">
             </div>
             <div class="project-details">
                 <p class="category">Digital Marketing</p>
@@ -194,13 +217,6 @@
             gap: 20px;
         }
 
-        /* .project-cardB {
-            display: flex;
-            background-color: var(--card-background-color);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        } */
         .project-cardB {
             display: flex;
             background-color: var(--card-background-color);
@@ -210,6 +226,7 @@
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.6s ease, transform 0.6s ease;
+            margin-top: 20px;
         }
 
         .project-cardB.show {
@@ -220,24 +237,6 @@
         .project-image {
             position: relative;
             flex: 0 0 40%;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .project-link {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            font-size: 1.5rem;
-            padding: 5px;
-            border-radius: 50%;
-            text-decoration: none;
         }
 
         .project-details {
