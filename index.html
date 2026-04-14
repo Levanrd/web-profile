@@ -2,53 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="color-scheme" content="dark light" />
-    <title>Lester Ivan Dalaguit | Developer Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lester Ivan Dalaguit | Full Stack Web Developer</title>
+    <meta
+      name="description"
+      content="Lester Ivan Dalaguit - Full Stack Web Developer specializing in E-commerce Systems and Scalable Web Applications."
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <style>
       :root {
-        --bg: #08070d;
-        --bg2: #0f0b1f;
-        --surface: rgba(255, 255, 255, 0.06);
-        --surface2: rgba(255, 255, 255, 0.09);
-        --border: rgba(255, 255, 255, 0.12);
-        --text: rgba(255, 255, 255, 0.92);
-        --muted: rgba(255, 255, 255, 0.68);
-        --faint: rgba(255, 255, 255, 0.5);
-
-        --brand: #8b5cf6;
-        --brand2: #22c55e;
-        --warn: #f59e0b;
-
-        --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+        --bg: #f5f5f3;
+        --surface: #ffffff;
+        --surface-soft: #fafaf8;
+        --text: #151515;
+        --muted: #4f4f4f;
+        --line: #1f1f1f;
+        --line-soft: #d8d8d3;
+        --shadow: 0 18px 55px rgba(0, 0, 0, 0.06);
         --radius: 22px;
-
-        --container: 1120px;
-        --navH: 76px;
-
-        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-          monospace;
+        --content: 1160px;
+        --mono: "IBM Plex Mono", monospace;
       }
 
-      html[data-theme="light"] {
-        --bg: #f7f7fb;
-        --bg2: #ffffff;
-        --surface: rgba(20, 20, 40, 0.05);
-        --surface2: rgba(20, 20, 40, 0.08);
-        --border: rgba(20, 20, 40, 0.12);
-        --text: rgba(15, 18, 26, 0.92);
-        --muted: rgba(15, 18, 26, 0.68);
-        --faint: rgba(15, 18, 26, 0.52);
-        --shadow: 0 18px 50px rgba(20, 20, 40, 0.12);
+      html[data-theme="dark"] {
+        --bg: #0d0d0d;
+        --surface: #111111;
+        --surface-soft: #171717;
+        --text: #f2f2ee;
+        --muted: #a7a7a1;
+        --line: #f2f2ee;
+        --line-soft: #343434;
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
       }
 
       * {
@@ -61,618 +52,499 @@
 
       body {
         margin: 0;
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-family: "Public Sans", sans-serif;
         color: var(--text);
-        background: radial-gradient(1100px 600px at 18% 20%, rgba(139, 92, 246, 0.35), transparent 55%),
-          radial-gradient(900px 500px at 80% 30%, rgba(34, 197, 94, 0.22), transparent 60%),
-          radial-gradient(700px 500px at 55% 80%, rgba(245, 158, 11, 0.18), transparent 60%),
-          linear-gradient(180deg, var(--bg), var(--bg2));
-        min-height: 100vh;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.03), transparent 240px),
+          var(--bg);
       }
 
       a {
         color: inherit;
-        text-decoration: none;
       }
 
       img {
-        max-width: 100%;
         display: block;
+        max-width: 100%;
       }
 
-      .container {
-        width: min(var(--container), calc(100% - 44px));
-        margin: 0 auto;
+      .site-shell {
+        width: min(calc(100% - 32px), 1280px);
+        margin: 18px auto;
+        background: var(--surface);
+        border: 1px solid var(--line-soft);
+        box-shadow: var(--shadow);
       }
 
-      .orb {
-        position: fixed;
-        inset: auto auto 0 0;
-        width: 520px;
-        height: 520px;
-        border-radius: 999px;
-        filter: blur(70px);
-        opacity: 0.25;
-        pointer-events: none;
-        z-index: 0;
-        transform: translate(-30%, 45%);
-        background: radial-gradient(circle at 30% 30%, var(--brand), transparent 60%);
-      }
-      .orb.orb2 {
-        inset: 0 0 auto auto;
-        transform: translate(35%, -30%);
-        background: radial-gradient(circle at 30% 30%, var(--brand2), transparent 60%);
-      }
-
-      header {
+      .topbar {
         position: sticky;
         top: 0;
-        z-index: 20;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0));
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        z-index: 30;
+        background: var(--surface);
+        background: color-mix(in srgb, var(--surface) 90%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line-soft);
       }
 
-      html[data-theme="light"] header {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
-        border-bottom: 1px solid rgba(20, 20, 40, 0.08);
-      }
-
-      .nav {
-        height: var(--navH);
+      .topbar-inner {
+        width: min(var(--content), calc(100% - 32px));
+        margin: 0 auto;
+        min-height: 72px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
+        gap: 18px;
       }
 
       .brand {
+        text-decoration: none;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.88rem;
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 16px;
+      }
+
+      .topbar-actions {
         display: flex;
         align-items: center;
-        gap: 10px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+        gap: 14px;
       }
 
-      .brand span {
-        font-size: 30px;
+      .nav a,
+      .theme-toggle,
+      .action-link,
+      .carousel-btn,
+      .preview-btn,
+      .modal-close,
+      .modal-nav {
+        transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
       }
 
-      .pillNav {
-        display: none;
-        gap: 6px;
-        padding: 8px;
-        border: 1px solid var(--border);
-        background: var(--surface);
-        border-radius: 999px;
-        box-shadow: var(--shadow);
-      }
-
-      .pillNav a {
-        font-size: 14px;
-        padding: 10px 14px;
-        border-radius: 999px;
+      .nav a {
+        text-decoration: none;
         color: var(--muted);
-        transition: 160ms ease;
-      }
-      .pillNav a:hover {
-        color: var(--text);
-        background: var(--surface2);
+        font-size: 0.92rem;
       }
 
-      .actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+      .nav a:hover,
+      .nav a:focus-visible {
+        color: var(--text);
       }
 
-      .btn {
-        border: 1px solid var(--border);
-        background: var(--surface);
+      .theme-toggle {
+        appearance: none;
+        border: 1px solid var(--line-soft);
+        background: transparent;
         color: var(--text);
-        padding: 10px 14px;
-        border-radius: 999px;
+        font: inherit;
         cursor: pointer;
-        transition: 180ms ease;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        font-weight: 600;
-        font-size: 14px;
-      }
-      .btn:hover {
-        transform: translateY(-1px);
-        background: var(--surface2);
-      }
-      .btnPrimary {
-        border: none;
-        background: linear-gradient(90deg, var(--brand), var(--brand2));
-        color: #0b0b10;
-      }
-      .btnPrimary:hover {
-        filter: brightness(1.05);
+        min-height: 40px;
+        padding: 0 14px;
       }
 
-      .iconBtn {
-        width: 42px;
-        height: 42px;
-        padding: 0;
-      }
-
-      @media (min-width: 880px) {
-        .pillNav {
-          display: inline-flex;
-        }
-      }
-
-      main {
-        position: relative;
-        z-index: 1;
-      }
-
-      section {
-        padding: 80px 0;
+      .page {
+        width: min(var(--content), calc(100% - 32px));
+        margin: 0 auto;
+        padding: 42px 0 72px;
       }
 
       .hero {
-        padding-top: 70px;
-      }
-
-      .heroGrid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 28px;
+        grid-template-columns: 75% 25%;
+        gap: 32px;
         align-items: center;
+        min-height: 560px;
+        padding: 34px 0 54px;
       }
 
-      @media (min-width: 980px) {
-        .heroGrid {
-          grid-template-columns: 1.15fr 0.85fr;
-          gap: 40px;
-        }
+      .hero-main {
+        display: grid;
+        gap: 26px;
+        align-content: center;
+        grid-column: 1 / 2;
+        min-width: 0;
       }
 
-      .badge {
+      .hero-intro {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        border: 1px solid var(--border);
-        background: var(--surface);
-        padding: 10px 14px;
-        border-radius: 999px;
         color: var(--muted);
-        font-weight: 600;
-        font-size: 13px;
-        width: fit-content;
-      }
-
-      .badge .pulse {
-        width: 9px;
-        height: 9px;
-        border-radius: 999px;
-        background: var(--brand2);
-        box-shadow: 0 0 0 7px rgba(34, 197, 94, 0.16);
-      }
-
-      h1 {
-        margin: 14px 0 10px;
-        font-size: clamp(40px, 5vw, 66px);
-        line-height: 1.02;
-        letter-spacing: -0.04em;
-      }
-
-      .sub {
-        margin: 0;
-        color: var(--muted);
-        font-size: 16px;
-        line-height: 1.7;
-        max-width: 60ch;
-      }
-
-      .heroCtas {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 22px;
-      }
-
-      .heroCard {
-        border: 1px solid var(--border);
-        background: linear-gradient(180deg, var(--surface), rgba(255, 255, 255, 0.02));
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 22px;
-      }
-
-      .avatarRow {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .avatar {
-        width: 56px;
-        height: 56px;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--brand), var(--brand2));
-        display: grid;
-        place-items: center;
-        color: #0b0b10;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        overflow: hidden;
-      }
-
-      .quickFacts {
-        margin-top: 16px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-
-      .fact {
-        border: 1px solid var(--border);
-        background: var(--surface);
-        border-radius: 16px;
-        padding: 12px;
-      }
-      .fact b {
-        display: block;
-        font-size: 13px;
-        color: var(--muted);
-        margin-bottom: 6px;
-      }
-      .fact span {
         font-family: var(--mono);
-        font-size: 12px;
-        color: var(--text);
-        opacity: 0.9;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
 
-      .sectionHead {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 18px;
-        margin-bottom: 22px;
-      }
-      .sectionHead h2 {
-        margin: 0;
-        font-size: 28px;
-        letter-spacing: -0.03em;
-      }
-      .sectionHead p {
-        margin: 0;
-        color: var(--muted);
-        max-width: 64ch;
-        line-height: 1.7;
+      .hero-intro::before {
+        content: "";
+        width: 38px;
+        height: 1px;
+        background: var(--line);
       }
 
-      .aboutGrid {
+      .hero-copy {
         display: grid;
-        grid-template-columns: 1fr;
         gap: 18px;
       }
-      @media (min-width: 980px) {
-        .aboutGrid {
-          grid-template-columns: 1fr 1fr;
-          gap: 22px;
-        }
-      }
 
-      .card {
-        border: 1px solid var(--border);
-        background: var(--surface);
-        border-radius: var(--radius);
-        padding: 22px;
-        box-shadow: var(--shadow);
-      }
-
-      .cardTitle {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin: 0 0 8px;
-        font-size: 16px;
-      }
-
-      .muted {
-        color: var(--muted);
-        line-height: 1.75;
+      .hero-copy h1 {
         margin: 0;
+        max-width: none;
+        font-size: 4rem;
+        line-height: 0.96;
+        letter-spacing: -0.07em;
       }
 
-      .chips {
+      .hero-copy .role {
+        margin: 0;
+        max-width: 62ch;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .hero-side {
+        display: grid;
+        gap: 18px;
+      }
+
+      .hero-contact {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 14px;
+        gap: 10px 18px;
+        align-items: center;
       }
 
-      .chip {
-        border: 1px solid var(--border);
-        background: rgba(0, 0, 0, 0.08);
-        padding: 10px 12px;
-        border-radius: 999px;
-        font-size: 13px;
-        color: var(--muted);
-      }
-
-      html[data-theme="light"] .chip {
-        background: rgba(255, 255, 255, 0.55);
-      }
-
-      .projectsGrid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-      @media (min-width: 820px) {
-        .projectsGrid {
-          grid-template-columns: 1fr 1fr;
-          gap: 16px;
-        }
-      }
-
-      .projectCard {
+      .portrait {
         position: relative;
+        min-height: 560px;
         overflow: hidden;
+        border: 1px solid var(--line-soft);
+        background: var(--surface-soft);
+        background:
+          radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.18), transparent 40%),
+          linear-gradient(180deg, color-mix(in srgb, var(--surface-soft) 86%, transparent), var(--surface));
       }
 
-      .projectCard::before {
-        content: "";
-        position: absolute;
-        inset: -2px;
-        background: radial-gradient(900px 240px at 20% 10%, rgba(139, 92, 246, 0.25), transparent 60%),
-          radial-gradient(900px 260px at 90% 25%, rgba(34, 197, 94, 0.18), transparent 55%);
-        opacity: 0.9;
-        pointer-events: none;
-      }
-
-      .projectInner {
-        position: relative;
-        border: 1px solid var(--border);
-        background: linear-gradient(180deg, var(--surface), rgba(255, 255, 255, 0.02));
-        border-radius: var(--radius);
-        padding: 22px;
-        box-shadow: var(--shadow);
+      .portrait img {
+        width: 100%;
         height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: grayscale(100%) contrast(1.02);
+      }
+
+      .resume-line {
+        border-top: 2px solid var(--line);
+        margin: 22px 0 16px;
+      }
+
+      .contact-row {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        align-items: center;
+      }
+
+      .contact-item {
+        font-size: 0.98rem;
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .contact-item:hover,
+      .contact-item:focus-visible,
+      .action-link:hover,
+      .action-link:focus-visible,
+      .preview-btn:hover,
+      .preview-btn:focus-visible,
+      .carousel-btn:hover,
+      .carousel-btn:focus-visible,
+      .modal-close:hover,
+      .modal-close:focus-visible,
+      .modal-nav:hover,
+      .modal-nav:focus-visible {
+        transform: translateY(-1px);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
         gap: 12px;
       }
 
-      .projectTop {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 14px;
+      .action-link,
+      .preview-btn,
+      .carousel-btn,
+      .modal-close,
+      .modal-nav {
+        appearance: none;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--text);
+        text-decoration: none;
+        cursor: pointer;
+        font: inherit;
       }
 
-      .projectTop h3 {
+      .action-link,
+      .preview-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 14px;
+        font-weight: 600;
+      }
+
+      section {
+        padding-top: 26px;
+      }
+
+      .section-head {
+        margin-bottom: 24px;
+      }
+
+      .section-head h2 {
         margin: 0;
-        font-size: 18px;
-        letter-spacing: -0.02em;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
       }
 
-      .projectTop p {
-        margin: 6px 0 0;
+      .section-head .resume-line {
+        margin: 16px 0 0;
+      }
+
+      .lede,
+      .about-text {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.25vw, 1.2rem);
+        line-height: 1.7;
+      }
+
+      .portfolio-row {
+        margin-top: 12px;
+        font-size: 1.08rem;
+      }
+
+      .portfolio-row a {
+        word-break: break-word;
+      }
+
+      .experience-list {
+        display: grid;
+        gap: 28px;
+      }
+
+      .experience-item {
+        display: grid;
+        grid-template-columns: 270px minmax(0, 1fr);
+        gap: 34px;
+      }
+
+      .experience-meta .date {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .experience-meta .company {
+        margin: 10px 0 0;
+        font-size: 1rem;
+        color: var(--muted);
+        font-style: italic;
+        line-height: 1.5;
+      }
+
+      .experience-body h3 {
+        margin: 0 0 12px;
+        font-size: 1.08rem;
+      }
+
+      .experience-body ul,
+      .education-body ul {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--muted);
+      }
+
+      .experience-body li,
+      .education-body li {
+        margin: 0 0 8px;
+        line-height: 1.6;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 44px;
+      }
+
+      .skills-group {
+        display: grid;
+        gap: 18px;
+      }
+
+      .skills-group p,
+      .skills-group h3 {
+        margin: 0;
+      }
+
+      .skills-group h3,
+      .project-copy h3,
+      .education-body h3 {
+        font-size: 1.05rem;
+      }
+
+      .skill-line {
+        display: grid;
+        gap: 8px;
+      }
+
+      .skill-line p {
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 1.02rem;
+      }
+
+      .projects-intro {
+        margin: 0 0 26px;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        gap: 26px;
+      }
+
+      .project-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+        gap: 26px;
+        padding: 26px;
+        border: 1px solid var(--line-soft);
+        background: var(--surface-soft);
+      }
+
+      .project-copy {
+        display: grid;
+        align-content: start;
+        gap: 12px;
+      }
+
+      .project-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .project-copy h3,
+      .project-copy p {
+        margin: 0;
+      }
+
+      .project-copy p {
         color: var(--muted);
         line-height: 1.65;
       }
 
-      .stackRow {
+      .project-tech {
+        font-weight: 600;
+      }
+
+      .project-gallery {
+        display: grid;
+        gap: 14px;
+      }
+
+      .carousel-shell {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line-soft);
+        background: #efefeb;
+      }
+
+      .carousel-track {
         display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
+        transition: transform 240ms ease;
       }
 
-      .stackIcon {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 10px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(0, 0, 0, 0.08);
-        color: var(--muted);
-        font-size: 12px;
-        font-family: var(--mono);
+      .carousel-slide {
+        min-width: 100%;
+        aspect-ratio: 16 / 10;
+        display: grid;
+        place-items: center;
+        background: #efefeb;
       }
 
-      html[data-theme="light"] .stackIcon {
-        background: rgba(255, 255, 255, 0.55);
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        cursor: zoom-in;
       }
 
-      .stackDot {
-        width: 10px;
-        height: 10px;
-        border-radius: 999px;
-        background: var(--brand);
-      }
-
-      .projectActions {
-        margin-top: auto;
+      .carousel-controls {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 12px;
       }
 
-      .link {
-        color: var(--muted);
-        font-weight: 600;
-        font-size: 14px;
+      .carousel-nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .carousel-btn,
+      .modal-close,
+      .modal-nav {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-      }
-      .link:hover {
-        color: var(--text);
-      }
-
-      .contactGrid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      @media (min-width: 980px) {
-        .contactGrid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-
-      .field {
-        display: grid;
-        gap: 8px;
-      }
-
-      label {
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 600;
-      }
-
-      input,
-      textarea {
-        width: 100%;
-        border: 1px solid var(--border);
-        background: var(--surface);
-        border-radius: 16px;
-        padding: 12px 14px;
-        color: var(--text);
-        outline: none;
-        font: inherit;
-      }
-      textarea {
-        min-height: 140px;
-        resize: vertical;
-      }
-      input:focus,
-      textarea:focus {
-        box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.18);
-        border-color: rgba(139, 92, 246, 0.45);
-      }
-
-      footer {
-        padding: 34px 0 48px;
-        color: var(--faint);
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      html[data-theme="light"] footer {
-        border-top: 1px solid rgba(20, 20, 40, 0.1);
-      }
-
-      .modalOverlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.55);
-        display: none;
-        align-items: center;
         justify-content: center;
-        padding: 22px;
-        z-index: 50;
-      }
-      .modalOverlay[data-open="true"] {
-        display: flex;
+        width: 42px;
+        height: 42px;
       }
 
-      .modal {
-        width: min(920px, 100%);
-        border-radius: calc(var(--radius) + 8px);
-        border: 1px solid var(--border);
-        background: linear-gradient(180deg, var(--bg2), var(--bg2));
-        box-shadow: var(--shadow);
-        overflow: hidden;
+      .carousel-btn[disabled] {
+        opacity: 0.35;
+        cursor: default;
+        transform: none;
       }
 
-      .modalHeader {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 18px 18px 14px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      html[data-theme="light"] .modalHeader {
-        border-bottom: 1px solid rgba(20, 20, 40, 0.1);
-      }
-
-      .modalHeader h3 {
-        margin: 0;
-        font-size: 16px;
-        letter-spacing: -0.02em;
-      }
-
-      .closeX {
-        width: 40px;
-        height: 40px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: var(--surface);
-        color: var(--text);
-        cursor: pointer;
-        display: grid;
-        place-items: center;
-      }
-
-      .modalBody {
-        padding: 18px;
-        display: grid;
-        gap: 16px;
-      }
-
-      .kv {
-        display: grid;
-        gap: 8px;
-      }
-      .kv b {
-        color: var(--muted);
-        font-size: 13px;
-      }
-      .kv p {
-        margin: 0;
-        line-height: 1.75;
-        color: var(--text);
-      }
-
-      .toolList {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .toolTag {
-        padding: 10px 12px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(0, 0, 0, 0.08);
+      .carousel-status {
         color: var(--muted);
         font-family: var(--mono);
-        font-size: 12px;
-      }
-      html[data-theme="light"] .toolTag {
-        background: rgba(255, 255, 255, 0.55);
+        font-size: 0.88rem;
       }
 
-      .modalFooter {
-        padding: 14px 18px 18px;
-        display: flex;
-        flex-wrap: wrap;
+      .thumbs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(74px, 1fr));
         gap: 10px;
-        justify-content: flex-end;
       }
 
       .thumb {
-        border: 1px solid var(--border);
-        border-radius: 18px;
+        appearance: none;
+        padding: 0;
+        border: 1px solid var(--line-soft);
+        background: #efefeb;
+        cursor: pointer;
+        aspect-ratio: 4 / 3;
         overflow: hidden;
-        background: var(--surface);
-        aspect-ratio: 16 / 9;
       }
 
       .thumb img {
@@ -680,841 +552,905 @@
         height: 100%;
         object-fit: cover;
         object-position: top;
-        display: block;
       }
 
-      .modalShots {
+      .thumb[aria-current="true"] {
+        border-color: var(--line);
+      }
+
+      .education-block {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
+        grid-template-columns: 270px minmax(0, 1fr);
+        gap: 34px;
+      }
+
+      .education-meta p {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .education-meta p + p {
+        margin-top: 10px;
+      }
+
+      .education-body h3 {
+        margin: 0 0 12px;
+      }
+
+      .footer {
+        border-top: 1px solid var(--line-soft);
+        padding: 26px 0 0;
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 14px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(0, 0, 0, 0.82);
+        z-index: 80;
+      }
+
+      .modal[data-open="true"] {
+        display: flex;
+      }
+
+      .modal-panel {
+        width: min(1220px, 100%);
+        max-height: calc(100vh - 48px);
+        background: #0d0d0d;
+        color: #f2f2f2;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .modal-title {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .modal-body {
+        position: relative;
+        display: grid;
+        grid-template-columns: 68px minmax(0, 1fr) 68px;
+        align-items: center;
+        gap: 14px;
+        padding: 18px;
+      }
+
+      .modal-stage {
+        min-height: 0;
+        height: min(78vh, 900px);
+        display: grid;
+        place-items: center;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          #111111;
+        background-size: 28px 28px;
+        overflow: hidden;
+      }
+
+      .modal-stage img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @media (max-width: 980px) {
+        .hero,
+        .experience-item,
+        .education-block,
+        .project-card {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+          gap: 22px;
+          padding-bottom: 40px;
+        }
+
+        .hero-main {
+          gap: 22px;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
-        .modalShots {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      .shot {
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        overflow: hidden;
-        background: var(--surface);
-        aspect-ratio: 16 / 10;
-      }
-
-      .shot img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-        display: block;
-      }
-
-      /* =========================
-         Slider styles (for 4+ images)
-      ========================== */
-      .slider{
-        position: relative;
-        overflow: hidden;
-        border-radius: 16px;
+        .site-shell {
+          width: 100%;
+          margin: 0;
+          border-left: 0;
+          border-right: 0;
         }
 
-
-      .slides {
-        display: flex;
-        transition: transform 220ms ease;
-        will-change: transform;
-      }
-
-      .slide {
-        flex: 0 0 calc(100% / 3);
-        aspect-ratio: 16 / 10;
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        overflow: hidden;
-        background: var(--surface);
-      }
-
-      .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-      }
-
-      @media (max-width: 900px) {
-        .slide {
-            flex-basis: calc(100% / 2);
-        }
+        .topbar-inner,
+        .page {
+          width: min(calc(100% - 24px), var(--content));
         }
 
-        @media (max-width: 620px) {
-        .slide {
-            flex-basis: 100%;
+        .topbar-inner {
+          padding: 10px 0;
+          min-height: auto;
+          align-items: flex-start;
+          flex-direction: column;
         }
-    }
 
-      .navBtn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 42px;
-        height: 42px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(0, 0, 0, 0.25);
-        color: var(--text);
-        display: grid;
-        place-items: center;
-        cursor: pointer;
-        user-select: none;
-        z-index: 2;
-      }
+        .nav {
+          gap: 12px;
+          justify-content: flex-start;
+        }
 
-      html[data-theme="light"] .navBtn {
-        background: rgba(255, 255, 255, 0.65);
-      }
+        .hero {
+          padding-top: 10px;
+        }
 
-      .navBtn:hover {
-        background: rgba(0, 0, 0, 0.35);
-      }
+        .hero-copy h1 {
+          max-width: 10ch;
+          font-size: 2.6rem;
+        }
 
-      html[data-theme="light"] .navBtn:hover {
-        background: rgba(255, 255, 255, 0.85);
-      }
+        .hero-copy .role {
+          max-width: none;
+        }
 
-      .navBtn.prev {
-        left: 10px;
-      }
+        .portrait {
+          min-height: 380px;
+        }
 
-      .navBtn.next {
-        right: 10px;
-      }
+        .contact-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
 
-      .dots {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        padding: 10px 0 0;
-      }
+        .topbar-actions {
+          width: 100%;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
 
-      .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: transparent;
-        cursor: pointer;
-      }
+        .project-card {
+          padding: 18px;
+        }
 
-      .dot.active {
-        background: var(--brand2);
-        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.14);
-        border-color: rgba(34, 197, 94, 0.35);
+        .modal-body {
+          grid-template-columns: 1fr;
+        }
+
+        .modal-nav {
+          width: 100%;
+          height: 44px;
+        }
+
+        .modal-stage {
+          height: min(62vh, 640px);
+        }
       }
     </style>
   </head>
-
   <body>
-    <div class="orb"></div>
-    <div class="orb orb2"></div>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="#top">Lester Ivan Dalaguit</a>
 
-    <header>
-      <div class="container nav">
-        <a class="brand" href="#home" aria-label="Go to home">
-          <span>lester<span style="color: var(--brand2)">.</span></span>
-        </a>
+          <div class="topbar-actions">
+            <nav class="nav" aria-label="Primary navigation">
+              <a href="#about">About</a>
+              <a href="#experience">Experience</a>
+              <a href="#skills">Skills</a>
+              <a href="#projects">Projects</a>
+              <a href="#education">Education</a>
+            </nav>
 
-        <nav class="pillNav" aria-label="Primary">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Featured</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="actions">
-          <button class="btn iconBtn" id="themeBtn" type="button" aria-label="Toggle theme">
-            <span id="themeIcon" aria-hidden="true">🌙</span>
-          </button>
-          <a class="btn btnPrimary" href="#contact">Contact ↗</a>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero" id="home">
-        <div class="container heroGrid">
-          <div>
-            <div class="badge">
-              <span class="pulse" aria-hidden="true"></span>
-              Available for freelance and full time roles
-            </div>
-
-            <h1>
-              Fullstack developer<br />
-              building fast, clean products.
-            </h1>
-
-            <p class="sub">
-              I design and ship modern web apps with a focus on performance, clean UI, and maintainable code.
-              I’m big on classic fundamentals too, good structure never goes out of style.
-            </p>
-
-            <div class="heroCtas">
-              <a class="btn btnPrimary" href="#projects">See featured projects</a>
-              <a class="btn" href="#about">About me</a>
-              <a class="btn" href="#contact">Get in touch</a>
-            </div>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">Dark</button>
           </div>
-
-          <aside class="heroCard" aria-label="Profile summary card">
-            <div class="avatarRow">
-              <div class="avatar" aria-hidden="true">
-                <img
-                  src="/img/profile.jpg"
-                  alt="Lester Ivan Dalaguit"
-                  style="border-radius: 999px; width: 100%; height: 100%; object-fit: cover"
-                />
-              </div>
-              <div>
-                <div style="font-weight: 800; letter-spacing: -0.02em; font-size: 16px">Lester Ivan Dalaguit</div>
-                <div style="color: var(--muted); font-size: 13px; margin-top: 4px">Fullstack Developer • Remote</div>
-              </div>
-            </div>
-
-            <div class="quickFacts">
-              <div class="fact">
-                <b>Focus</b>
-                <span>Laravel • Vue • Nuxt • Shopify</span>
-              </div>
-              <div class="fact">
-                <b>Strength</b>
-                <span>APIs • UI • DX</span>
-              </div>
-              <div class="fact">
-                <b>Current</b>
-                <span>Building Shopify store</span>
-              </div>
-              <div class="fact">
-                <b>Mindset</b>
-                <span>Ship, then polish</span>
-              </div>
-            </div>
-
-            <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap">
-              <a class="btn" href="/pdf/LesterIvanDalaguit(Resume).pdf" download="LesterIvanDalaguit(Resume).pdf">Download resume</a>
-              <a class="btn" href="https://github.com/Levanrd">GitHub</a>
-            </div>
-          </aside>
         </div>
-      </section>
+      </header>
 
-      <section id="about">
-        <div class="container">
-          <div class="sectionHead">
-            <div>
-              <h2>About</h2>
-              <p>
-                I like modern UI, but I’m old school about good architecture. Solid naming, predictable structure, and boring reliability win every time.
+      <main class="page" id="top">
+        <section class="hero" aria-label="Introduction">
+          <div class="hero-main">
+            <div class="hero-intro">Lester Ivan Dalaguit</div>
+
+            <div class="hero-copy">
+              <h1>Full Stack Web Developer specializing in E-commerce Systems and Scalable Web Applications</h1>
+              <p class="role">
+                Full Stack Web Developer with 4+ years of experience building e-commerce platforms, web applications,
+                and high-performance websites.
               </p>
             </div>
+
+            <div class="hero-contact">
+              <a class="contact-item" href="tel:+639660476105">+639-660-476-105</a>
+              <a class="contact-item" href="mailto:lesterivan.dalaguit@gmail.com">lesterivan.dalaguit@gmail.com</a>
+              <a class="contact-item" href="https://github.com/Levanrd" target="_blank" rel="noreferrer">
+                github.com/Levanrd
+              </a>
+            </div>
+
+            <div class="hero-actions">
+              <a
+                class="action-link"
+                href="pdf/LesterIvanDalaguit(Resume).pdf"
+                download="LesterIvanDalaguit(Resume).pdf"
+              >
+                Download Resume
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="about">
+          <div class="section-head">
+            <h2>About Me</h2>
+            <div class="resume-line" aria-hidden="true"></div>
           </div>
 
-          <div class="aboutGrid">
-            <div class="card">
-              <h3 class="cardTitle">What I do</h3>
-              <p class="muted">
-                I build web applications end to end, backend APIs, authentication, admin dashboards, and responsive frontend UI. I care about clear code, readable components, and performance that doesn’t cry on mobile.
-                <br>
-                I also build and customize Shopify stores for eCommerce businesses.
-              </p>
+          <p class="about-text">
+            Full Stack Web Developer with 4+ years of experience building e-commerce platforms, web applications, and
+            high-performance websites. Specialized in developing scalable systems, API integrations, and automation
+            workflows, including print-on-demand platforms for US-based clients. Focused on building scalable,
+            maintainable systems that solve real business problems from frontend to backend.
+          </p>
+        </section>
 
-              <div class="chips" aria-label="Skills">
-                <span class="chip">Laravel</span>
-                <span class="chip">MySQL</span>
-                <span class="chip">Vue</span>
-                <span class="chip">Nuxt</span>
-                <span class="chip">Docker</span>
-                <span class="chip">REST APIs</span>
-                <span class="chip">Auth and RBAC</span>
+        <section id="experience">
+          <div class="section-head">
+            <h2>Experience</h2>
+            <div class="resume-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="experience-list">
+            <article class="experience-item">
+              <div class="experience-meta">
+                <p class="date">Jun 2025 - Present</p>
+                <p class="company">4Winners Merch (US-based Print-on-Demand Company)</p>
+              </div>
+
+              <div class="experience-body">
+                <h3>Web Developer (Contractor)</h3>
+                <ul>
+                  <li>Developed and maintained print-on-demand e-commerce systems.</li>
+                  <li>Built and optimized product workflows, automation, and integrations.</li>
+                  <li>Improved site performance and user experience for high-volume product listings.</li>
+                  <li>Integrated backend services and APIs to streamline order and product workflows.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-meta">
+                <p class="date">Aug 2024 - May 2025</p>
+                <p class="company">Inriver PH</p>
+              </div>
+
+              <div class="experience-body">
+                <h3>Software Developer</h3>
+                <ul>
+                  <li>Developed scalable web applications using Vue.js, and Node.js.</li>
+                  <li>Built RESTful APIs and integrated third-party services.</li>
+                  <li>Managed databases (MySQL, CouchDB).</li>
+                  <li>Improved backend performance and optimized system workflows.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-meta">
+                <p class="date">Dec 2023 - Jul 2024</p>
+                <p class="company">Self-Employed</p>
+              </div>
+
+              <div class="experience-body">
+                <h3>Freelance Full Stack Developer</h3>
+                <ul>
+                  <li>Built custom web applications using Laravel and Blade.</li>
+                  <li>Delivered end-to-end full-cycle development (frontend, backend, deployment).</li>
+                  <li>Managed hosting, DNS, and client requirements.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-meta">
+                <p class="date">May 2023 - Nov 2023</p>
+                <p class="company">Infosoft Studio</p>
+              </div>
+
+              <div class="experience-body">
+                <h3>Frontend Developer (OJT)</h3>
+                <ul>
+                  <li>Developed UI using Vue.js, Nuxt, and Vuetify.</li>
+                  <li>Built reusable components and improved UX.</li>
+                  <li>Assisted in documentation and client presentations.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-meta">
+                <p class="date">May 2022 - May 2023</p>
+                <p class="company">Twin Rams Media</p>
+              </div>
+
+              <div class="experience-body">
+                <h3>WordPress &amp; Shopify Developer</h3>
+                <ul>
+                  <li>Built and maintained WordPress and Shopify websites.</li>
+                  <li>Integrated APIs and automation features.</li>
+                  <li>Improved site functionality and performance.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-meta">
+                <p class="date">Jan 2020 - May 2022</p>
+                <p class="company">The Dream Team Digital Marketing</p>
+              </div>
+
+              <div class="experience-body">
+                <h3>WordPress Developer &amp; SEO Specialist</h3>
+                <ul>
+                  <li>Managed WordPress websites and SEO campaigns.</li>
+                  <li>Improved search rankings using Analytics, Search Console, Ahrefs, SEMrush.</li>
+                  <li>Collaborated with content teams for optimized performance.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="skills">
+          <div class="section-head">
+            <h2>Skills</h2>
+            <div class="resume-line" aria-hidden="true"></div>
+          </div>
+
+          <p class="projects-intro">
+            <strong>Core focus:</strong> Full Stack Development, E-commerce Systems, API Integration, and Automation
+          </p>
+
+          <div class="skills-grid">
+            <div class="skills-group">
+              <div class="skill-line">
+                <h3>Frontend:</h3>
+                <p>HTML, CSS, JavaScript, Vue, Nuxt, Pinia, Axios</p>
+              </div>
+
+              <div class="skill-line">
+                <h3>Backend:</h3>
+                <p>PHP, Laravel, Node.js, Express.js</p>
+              </div>
+
+              <div class="skill-line">
+                <h3>Database:</h3>
+                <p>MySQL, SQLite, MongoDB, CouchDB</p>
               </div>
             </div>
 
-            <div class="card">
-              <h3 class="cardTitle">How I work</h3>
-              <p class="muted">
-                I’m big on predictable workflows: plan, build the backbone first, then UI polish. I write code like someone else will inherit it tomorrow. Because they will. Probably you. 😭
-              </p>
+            <div class="skills-group">
+              <div class="skill-line">
+                <h3>Tools &amp; DevOps:</h3>
+                <p>Git, GitHub, Docker, Postman, XAMPP</p>
+              </div>
 
-              <div class="chips" aria-label="Principles">
-                <span class="chip">Reusable components</span>
-                <span class="chip">Clean API contracts</span>
-                <span class="chip">Queue jobs for heavy work</span>
-                <span class="chip">Validation everywhere</span>
-                <span class="chip">Simple over clever</span>
+              <div class="skill-line">
+                <h3>Deployment:</h3>
+                <p>Vercel, Netlify, Render, DigitalOcean, AWS</p>
+              </div>
+
+              <div class="skill-line">
+                <h3>CMS &amp; E-commerce:</h3>
+                <p>WordPress, Shopify</p>
+              </div>
+
+              <div class="skill-line">
+                <h3>Other:</h3>
+                <p>SEO, Google Analytics, Search Console, DNS &amp; Hosting Management</p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="projects">
-        <div class="container">
-          <div class="sectionHead">
-            <div>
-              <h2>Featured projects</h2>
-              <p>Click any project to see the detailed description, tools used, and what you actually built (aka receipts).</p>
-            </div>
-            <a class="link" href="#contact">Want one like this? Let’s talk →</a>
+        <section id="projects">
+          <div class="section-head">
+            <h2>Projects</h2>
+            <div class="resume-line" aria-hidden="true"></div>
           </div>
 
-          <div class="projectsGrid" id="projectsGrid" aria-label="Featured projects list"></div>
-        </div>
-      </section>
+          <p class="projects-intro">Selected full stack and e-commerce systems demonstrating real-world applications.</p>
 
-      <section id="contact">
-        <div class="container">
-          <div class="sectionHead">
-            <div>
-              <h2>Get in touch</h2>
-              <p>Have a project in mind or need help building something solid? Drop a message and I’ll get back to you as soon as I can.</p>
-            </div>
-          </div>
+          <div class="projects-grid">
+            <article class="project-card" data-project-title="Holy Cross Alumni Portal (Client Project)">
+              <div class="project-copy">
+                <h3>Holy Cross Alumni Portal (Client Project)</h3>
+                <p>Full-stack alumni system with role-based access, event management, and secure data handling.</p>
+                <p class="project-tech">Tech: Vue, Laravel, MySQL, REST API</p>
+                <div class="project-actions">
+                  <button class="preview-btn" type="button">Preview Images</button>
+                </div>
+              </div>
 
-          <div class="contactGrid">
-            <div class="card">
-                <h3 class="cardTitle">Message me</h3>
-                <p class="muted" style="margin-bottom: 14px">
-                    Whether it’s a freelance project, a full time opportunity, or a quick question feel free to reach out.
+              <div class="project-gallery">
+                <div class="carousel-shell">
+                  <div class="carousel-track">
+                    <div class="carousel-slide">
+                      <img src="img/alumni/alumni-web.png" alt="Holy Cross Alumni Portal preview 1" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/alumni/alumni-dash.png" alt="Holy Cross Alumni Portal preview 2" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-controls">
+                  <div class="carousel-nav">
+                    <button class="carousel-btn" type="button" data-direction="prev" aria-label="Previous image">&larr;</button>
+                    <button class="carousel-btn" type="button" data-direction="next" aria-label="Next image">&rarr;</button>
+                  </div>
+                  <div class="carousel-status" aria-live="polite"></div>
+                </div>
+
+                <div class="thumbs">
+                  <button class="thumb" type="button">
+                    <img src="img/alumni/alumni-web.png" alt="Holy Cross Alumni Portal thumbnail 1" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/alumni/alumni-dash.png" alt="Holy Cross Alumni Portal thumbnail 2" />
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" data-project-title="Woz Ecommerce Platform (US Client Project)">
+              <div class="project-copy">
+                <h3>Woz Ecommerce Platform (US Client Project)</h3>
+                <p>
+                  Custom e-commerce platform focused on product presentation, performance, and conversion for a
+                  US-based brand.
                 </p>
-
-                <form id="contactForm">
-                <div class="field">
-                    <label>Name</label>
-                    <input name="from_name" required />
-                </div>
-
-                <div class="field">
-                    <label>Email</label>
-                    <input type="email" name="reply_to" required />
-                </div>
-
-                <div class="field">
-                    <label>Message</label>
-                    <textarea name="message" placeholder="Tell me about your project or idea..." required></textarea>
-                </div>
-
-                <!-- honeypot -->
-                <input type="text" name="company" style="display:none">
-
-                <button style="margin-top: 1em;" class="btn btnPrimary" type="submit">Submit →</button>
-                </form>
-
-            </div>
-
-            <div class="card">
-              <h3 class="cardTitle">Quick details</h3>
-              <p class="muted">A few things about me and how I work.</p>
-
-              <div class="chips" style="margin-top: 14px">
-                <span class="chip">Email: lesterivan.dalaguit@gmail.com</span>
-                <span class="chip">Location: Philippines 🇵🇭</span>
-                <span class="chip">Timezone: GMT+8</span>
-                <span class="chip">Open to: Freelance or Fulltime</span>
-              </div>
-
-              <div style="margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px">
-                <div style="color: var(--muted); font-size: 13px; font-weight: 700; margin-bottom: 8px">Current stack I like</div>
-                <div class="toolList">
-                  <span class="toolTag">Laravel</span>
-                  <span class="toolTag">Express Js</span>
-                  <span class="toolTag">Vue</span>
-                  <span class="toolTag">Nuxt</span>
-                  <span class="toolTag">MySQL</span>
-                  <span class="toolTag">MongoDB</span>
-                  <span class="toolTag">Docker</span>
-                  <span class="toolTag">Queues</span>
-                  <span class="toolTag">Postman</span>
-                  <span class="toolTag">Git</span>
-                  <span class="toolTag">Shopify</span>
-                  <span class="toolTag">WordPress</span>
+                <p class="project-tech">Tech: Shopify, Liquid, JavaScript</p>
+                <div class="project-actions">
+                  <button class="preview-btn" type="button">Preview Images</button>
+                  <a class="preview-btn" href="https://wozmerch.com/" target="_blank" rel="noreferrer">
+                    Preview Live
+                  </a>
                 </div>
               </div>
+
+              <div class="project-gallery">
+                <div class="carousel-shell">
+                  <div class="carousel-track">
+                    <div class="carousel-slide">
+                      <img src="img/woz/wozhome.png" alt="Woz Ecommerce Platform preview 1" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/woz/wozcatalog.png" alt="Woz Ecommerce Platform preview 2" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/woz/wozcontact.png" alt="Woz Ecommerce Platform preview 3" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/woz/wozcart.png" alt="Woz Ecommerce Platform preview 4" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/woz/wozcheckout.png" alt="Woz Ecommerce Platform preview 5" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-controls">
+                  <div class="carousel-nav">
+                    <button class="carousel-btn" type="button" data-direction="prev" aria-label="Previous image">&larr;</button>
+                    <button class="carousel-btn" type="button" data-direction="next" aria-label="Next image">&rarr;</button>
+                  </div>
+                  <div class="carousel-status" aria-live="polite"></div>
+                </div>
+
+                <div class="thumbs">
+                  <button class="thumb" type="button">
+                    <img src="img/woz/wozhome.png" alt="Woz Ecommerce Platform thumbnail 1" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/woz/wozcatalog.png" alt="Woz Ecommerce Platform thumbnail 2" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/woz/wozcontact.png" alt="Woz Ecommerce Platform thumbnail 3" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/woz/wozcart.png" alt="Woz Ecommerce Platform thumbnail 4" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/woz/wozcheckout.png" alt="Woz Ecommerce Platform thumbnail 5" />
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" data-project-title="Budget Planner (MVP) (Personal Project)">
+              <div class="project-copy">
+                <h3>Budget Planner (MVP) (Personal Project)</h3>
+                <p>Finance web app for tracking expenses, budgets, and data visualization.</p>
+                <p class="project-tech">Tech: Vue, Express.js, PostgreSQL</p>
+                <div class="project-actions">
+                  <button class="preview-btn" type="button">Preview Images</button>
+                  <a
+                    class="preview-btn"
+                    href="https://budgeting-app-xi-three.vercel.app/login"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Preview Live
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-gallery">
+                <div class="carousel-shell">
+                  <div class="carousel-track">
+                    <div class="carousel-slide">
+                      <img src="img/budgeting-app/login.png" alt="Budget Planner preview 1" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/budgeting-app/dashboard.png" alt="Budget Planner preview 2" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/budgeting-app/transactions.png" alt="Budget Planner preview 3" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/budgeting-app/monthlyplan.png" alt="Budget Planner preview 4" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/budgeting-app/reports.png" alt="Budget Planner preview 5" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-controls">
+                  <div class="carousel-nav">
+                    <button class="carousel-btn" type="button" data-direction="prev" aria-label="Previous image">&larr;</button>
+                    <button class="carousel-btn" type="button" data-direction="next" aria-label="Next image">&rarr;</button>
+                  </div>
+                  <div class="carousel-status" aria-live="polite"></div>
+                </div>
+
+                <div class="thumbs">
+                  <button class="thumb" type="button">
+                    <img src="img/budgeting-app/login.png" alt="Budget Planner thumbnail 1" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/budgeting-app/dashboard.png" alt="Budget Planner thumbnail 2" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/budgeting-app/transactions.png" alt="Budget Planner thumbnail 3" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/budgeting-app/monthlyplan.png" alt="Budget Planner thumbnail 4" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/budgeting-app/reports.png" alt="Budget Planner thumbnail 5" />
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" data-project-title="Inventory Management System (Client Project)">
+              <div class="project-copy">
+                <h3>Inventory Management System (Client Project)</h3>
+                <p>System for managing stock, orders, and suppliers with scalable backend logic.</p>
+                <p class="project-tech">Tech: Vue, Express.js, MySQL</p>
+                <div class="project-actions">
+                  <button class="preview-btn" type="button">Preview Images</button>
+                </div>
+              </div>
+
+              <div class="project-gallery">
+                <div class="carousel-shell">
+                  <div class="carousel-track">
+                    <div class="carousel-slide">
+                      <img src="img/inv/login.png" alt="Inventory Management System preview 1" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/inv/register.png" alt="Inventory Management System preview 2" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/inv/dashboard.png" alt="Inventory Management System preview 3" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/inv/products.png" alt="Inventory Management System preview 4" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/inv/orders.png" alt="Inventory Management System preview 5" />
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="img/inv/admin-setup.png" alt="Inventory Management System preview 6" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-controls">
+                  <div class="carousel-nav">
+                    <button class="carousel-btn" type="button" data-direction="prev" aria-label="Previous image">&larr;</button>
+                    <button class="carousel-btn" type="button" data-direction="next" aria-label="Next image">&rarr;</button>
+                  </div>
+                  <div class="carousel-status" aria-live="polite"></div>
+                </div>
+
+                <div class="thumbs">
+                  <button class="thumb" type="button">
+                    <img src="img/inv/login.png" alt="Inventory Management System thumbnail 1" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/inv/register.png" alt="Inventory Management System thumbnail 2" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/inv/dashboard.png" alt="Inventory Management System thumbnail 3" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/inv/products.png" alt="Inventory Management System thumbnail 4" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/inv/orders.png" alt="Inventory Management System thumbnail 5" />
+                  </button>
+                  <button class="thumb" type="button">
+                    <img src="img/inv/admin-setup.png" alt="Inventory Management System thumbnail 6" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="education">
+          <div class="section-head">
+            <h2>Education</h2>
+            <div class="resume-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="education-block">
+            <div class="education-meta">
+              <p>2019 - 2024</p>
+              <p>Interface Computer College</p>
+            </div>
+
+            <div class="education-body">
+              <h3>Diploma in Information Technology</h3>
+              <ul>
+                <li>Focused on web development, software development, and database management</li>
+                <li>
+                  Built foundational skills in frontend and backend technologies, including HTML, CSS, JavaScript,
+                  PHP, and SQL
+                </li>
+                <li>
+                  Gained hands-on experience in developing web applications and managing real-world system workflows
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer>
-        <div class="container" style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between">
-          <div>© <span id="year"></span> lester<span style="color: var(--brand2)">.</span> All rights reserved.</div>
-          <div style="display: flex; gap: 12px">
-            <a class="link" href="#home">Home</a>
-            <a class="link" href="#projects">Projects</a>
-            <a class="link" href="#contact">Contact</a>
-          </div>
-        </div>
-      </footer>
-    </main>
+        <footer class="footer">
+          <span>lesterivan.dalaguit@gmail.com</span>
+          <span>github.com/Levanrd</span>
+          <span>Full Stack Web Developer</span>
+        </footer>
+      </main>
+    </div>
 
-    <div class="modalOverlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Project details">
-      <div class="modal" role="document">
-        <div class="modalHeader">
-          <h3 id="modalTitle">Project</h3>
-          <button class="closeX" id="closeModalBtn" type="button" aria-label="Close">✕</button>
+    <div class="modal" id="imageModal" aria-hidden="true">
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+          <p class="modal-title" id="modalTitle"></p>
+          <button class="modal-close" type="button" id="modalClose" aria-label="Close image preview">&times;</button>
         </div>
 
-        <div class="modalBody">
-          <div class="kv">
-            <b>Summary</b>
-            <p id="modalSummary"></p>
+        <div class="modal-body">
+          <button class="modal-nav" type="button" id="modalPrev" aria-label="Previous image">&larr;</button>
+
+          <div class="modal-stage">
+            <img id="modalImage" alt="" />
           </div>
 
-          <div class="kv">
-            <b>Problem</b>
-            <p id="modalProblem"></p>
-          </div>
-
-          <div class="kv">
-            <b>What I built</b>
-            <p id="modalBuilt"></p>
-          </div>
-
-          <div class="kv">
-            <div class="toolList" id="modalScreens"></div>
-          </div>
-
-          <div class="kv">
-            <b>Tools used</b>
-            <div class="toolList" id="modalTools"></div>
-          </div>
-        </div>
-
-        <div class="modalFooter">
-          <a class="btn" id="modalRepo" href="#" target="_blank" rel="noreferrer">View repository</a>
-          <a class="btn btnPrimary" id="modalLive" href="#" target="_blank" rel="noreferrer">Open live demo ↗</a>
+          <button class="modal-nav" type="button" id="modalNext" aria-label="Next image">&rarr;</button>
         </div>
       </div>
     </div>
 
     <script>
-      const themeBtn = document.getElementById("themeBtn");
-      const themeIcon = document.getElementById("themeIcon");
-
-      function setTheme(theme) {
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-        themeIcon.textContent = theme === "light" ? "☀️" : "🌙";
-      }
-
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme) setTheme(savedTheme);
-      else {
-        const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-        setTheme(prefersLight ? "light" : "dark");
-      }
-
-      themeBtn.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("data-theme");
-        setTheme(current === "light" ? "dark" : "light");
-      });
-
-      function scrollToHash(hash) {
-        const el = document.querySelector(hash);
-        if (!el) return;
-        const y =
-          el.getBoundingClientRect().top +
-          window.pageYOffset -
-          (parseInt(getComputedStyle(document.documentElement).getPropertyValue("--navH")) || 76);
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-
-      document.querySelectorAll('a[href^="#"]').forEach((a) => {
-        a.addEventListener("click", (e) => {
-          const href = a.getAttribute("href");
-          if (!href || href.length < 2) return;
-          const target = document.querySelector(href);
-          if (!target) return;
-          e.preventDefault();
-          history.pushState({}, "", href);
-          scrollToHash(href);
-        });
-      });
-
-      const projects = [
-        {
-          id: "alumni",
-          title: "Holy Cross of Davao ALUMNI Portal",
-          desc: "An alumni management system with user roles, event management, and secure data handling.",
-          stack: ["Laravel API", "Nuxt", "Axios", "Vue"],
-          cover: "/img/alumni/alumni-web.png",
-          coverFit: "cover",
-          screens: ["/img/alumni/alumni-web.png", "/img/alumni/alumni-dash.png"],
-          summary: "A full stack alumni portal with role based access, event management, and secure data handling.",
-          problem: "Needed a way to manage alumni data, events, and communications with role based access control.",
-          built: "User authentication, role management, event creation, alumni directory, and secure data storage.",
-          tools: ["Laravel", "Sanctum", "MySQL", "Nuxt", "Axios", "Vuetify", "Docker"],
-          repoUrl: "#",
-          liveUrl: "#",
-        },
-        {
-          id: "records-system",
-          title: "Barangay Tibungco RMS",
-          desc: "A record management system for barangay level document tracking, resident data, and reporting.",
-          stack: ["Nuxt", "Laravel", "Vuetify"],
-          cover: "/img/brgy/brgy-web.png",
-          coverFit: "cover",
-          screens: ["/img/brgy/brgy-web.png", "/img/brgy/brgy-dash.png"],
-          summary: "A full stack app for managing resident records, document requests, and reporting.",
-          problem: "Needed a way to track resident documents, manage requests, and streamline barangay workflows.",
-          built: "Resident management, document tracking, request workflows, and reporting dashboards.",
-          tools: ["Nuxt", "Vuetify", "Laravel", "MySQL", "File Storage", "Auth"],
-          repoUrl: "#",
-          liveUrl: "#",
-        },
-        {
-          id: "inventory-system",
-          title: "Inventory Management System",
-          desc: "A web app for tracking inventory levels, orders, suppliers, and generating reports.",
-          stack: ["Express JS", "MongoDB", "Vue", "Element UI"],
-          cover: "/img/inv/inv1c.png",
-          coverFit: "cover",
-          screens: ["/img/inv/inv1c.png", "/img/inv/inv1a.png", "/img/inv/inv1b.png"],
-          summary: "A full stack inventory system with product, supplier, and order management plus reporting.",
-          problem: "Needed better stock visibility, supplier tracking, and faster reporting.",
-          built: "Inventory CRUD, supplier database, order tracking, filters, pagination, and exports.",
-          tools: ["Express JS", "MongoDB", "Vue", "Element UI"],
-          repoUrl: "#",
-          liveUrl: "#",
-        },
-        {
-          id: "shopify-shop",
-          title: "The 702 Firm Merch Shop",
-          desc: "Custom storefront layout and sections focused on product presentation and trust.",
-          stack: ["Shopify", "Liquid", "CSS", "JS"],
-          cover: "/img/702firm/hero.png",
-          coverFit: "cover",
-          screens: ["/img/702firm/hero.png", "/img/702firm/catalog.png", "/img/702firm/product.png", "/img/702firm/collections.png"],
-          summary: "Custom Shopify theme and sections for a clean merch store experience.",
-          problem: "Needed a premium look that loads fast and supports conversion.",
-          built: "Theme sections, layout improvements, product presentation, and reusable components.",
-          tools: ["Shopify Liquid", "CSS", "Vanilla JS", "Theme Sections"],
-          repoUrl: "#",
-          liveUrl: "https://the702firm.myshopify.com/",
-        },
-        {
-          id: "product-app",
-          title: "Dashing Ear Buds",
-          desc: "A custom landing page and product showcase for a tech gadget.",
-          stack: ["HTML", "CSS", "JS", "GSAP"],
-          cover: "/img/dashing-buds/web.png",
-          coverFit: "cover",
-          screens: ["/img/dashing-buds/web.png"],
-          summary: "A sleek landing page to showcase the Dashing Ear Buds with animations and product details.",
-          problem: "Needed a modern, engaging page to highlight product features and drive sales.",
-          built: "Responsive layout, animated sections, product showcase, and smooth scrolling.",
-          tools: ["HTML", "CSS", "JS", "GSAP"],
-          repoUrl: "https://github.com/Levanrd/product-app",
-          liveUrl: "https://dashing-earbuds-app.vercel.app/",
-        },
-        {
-          id: "budgeting-app",
-          title: "Budget Planner",
-          desc: "A personal budgeting app to track expenses, set goals, and visualize spending.",
-          stack: ["Vue", "Node.js", "Express", "MongoDB"],
-          cover: "/img/budgeting-app/dashboard.png",
-          coverFit: "cover",
-          screens: ["/img/budgeting-app/login.png", "/img/budgeting-app/dashboard.png", "/img/budgeting-app/transactions.png", "/img/budgeting-app/monthlyplan.png", "/img/budgeting-app/reports.png"],
-          summary: "A full stack personal budgeting app with expense tracking, goal setting, and spending visualization.",
-          problem: "Needed a way to manage personal finances, track expenses, and visualize spending habits.",
-          built: "User authentication, expense tracking, budget goals, monthly planning, and financial reports.",
-          tools: ["Vue", "Node.js", "Express", "MongoDB", "Chart.js"],
-          repoUrl: "https://github.com/Levanrd/budgeting-app",
-          liveUrl: "https://budgeting-app-xi-three.vercel.app/",
-
-        }
-      ];
-
-      const grid = document.getElementById("projectsGrid");
-
-      function stackColor(label) {
-        let hash = 0;
-        for (let i = 0; i < label.length; i++) hash = (hash * 31 + label.charCodeAt(i)) >>> 0;
-        const hue = hash % 360;
-        return `hsl(${hue} 80% 60%)`;
-      }
-
-      function projectCard(p) {
-        const stackHtml = p.stack
-          .map((s) => {
-            const c = stackColor(s);
-            return `<span class="stackIcon"><span class="stackDot" style="background:${c}"></span>${s}</span>`;
-          })
-          .join("");
-
-        const coverFit = p.coverFit || "cover";
-
-        return `
-          <article class="projectCard">
-            <div class="projectInner">
-              <div class="projectTop">
-                <div>
-                  <h3>${p.title}</h3>
-                  <p>${p.desc}</p>
-                </div>
-                <button class="btn iconBtn" type="button" aria-label="Open details" data-open="${p.id}">↗</button>
-              </div>
-
-              <div class="thumb">
-                <img src="${p.cover}" alt="${p.title} preview" style="object-fit:${coverFit};" loading="lazy" />
-              </div>
-
-              <div class="stackRow" aria-label="Tech stack">
-                ${stackHtml}
-              </div>
-
-              <div class="projectActions">
-                <button class="btn btnPrimary" type="button" data-open="${p.id}">View project</button>
-                <a class="link" href="#contact">Hire me →</a>
-              </div>
-            </div>
-          </article>
-        `;
-      }
-
-      grid.innerHTML = projects.map(projectCard).join("");
-
-      const modalOverlay = document.getElementById("modalOverlay");
-      const closeModalBtn = document.getElementById("closeModalBtn");
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("themeToggle");
+      const projectCards = document.querySelectorAll(".project-card");
+      const modal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
       const modalTitle = document.getElementById("modalTitle");
-      const modalSummary = document.getElementById("modalSummary");
-      const modalProblem = document.getElementById("modalProblem");
-      const modalBuilt = document.getElementById("modalBuilt");
-      const modalTools = document.getElementById("modalTools");
-      const modalRepo = document.getElementById("modalRepo");
-      const modalLive = document.getElementById("modalLive");
-      const modalScreens = document.getElementById("modalScreens");
-      let screensResizeController = null;
+      const modalPrev = document.getElementById("modalPrev");
+      const modalNext = document.getElementById("modalNext");
+      const modalClose = document.getElementById("modalClose");
 
-        function renderScreens(p) {
-        const screens = Array.isArray(p.screens) ? p.screens : [];
-        if (screens.length === 0) {
-            modalScreens.innerHTML = "";
-            return;
-        }
+      let modalCardIndex = 0;
+      let modalImageIndex = 0;
 
-        // 1–3 images: grid
-        if (screens.length <= 3) {
-            modalScreens.innerHTML = `
-            <div class="modalShots">
-                ${screens
-                .map(
-                    (src) => `
-                    <div class="shot">
-                        <img src="${src}" alt="${p.title} screen" loading="lazy" />
-                    </div>
-                    `
-                )
-                .join("")}
-            </div>
-            `;
-            return;
-        }
+      function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        themeToggle.textContent = theme === "dark" ? "Light" : "Dark";
+      }
 
-        // 4+ images: slider
-        const slidesHtml = screens
-            .map(
-            (src) => `
-                <div class="slide">
-                <img src="${src}" alt="${p.title} screen" loading="lazy" />
-                </div>
-            `
-            )
-            .join("");
+      const storedTheme = localStorage.getItem("theme");
+      const initialTheme =
+        storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
-        modalScreens.innerHTML = `
-            <div class="slider" data-slider="true">
-            <div class="slides" data-slides="true">
-                ${slidesHtml}
-            </div>
-            <button class="navBtn prev" type="button" aria-label="Previous" data-prev="true">‹</button>
-            <button class="navBtn next" type="button" aria-label="Next" data-next="true">›</button>
-            </div>
-            <div class="dots" data-dots="true"></div>
-        `;
+      applyTheme(initialTheme);
 
-        const slides = modalScreens.querySelector('[data-slides="true"]');
-        const prev = modalScreens.querySelector('[data-prev="true"]');
-        const next = modalScreens.querySelector('[data-next="true"]');
-        const dotsWrap = modalScreens.querySelector('[data-dots="true"]');
+      themeToggle.addEventListener("click", () => {
+        const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", nextTheme);
+        applyTheme(nextTheme);
+      });
 
-        let idx = 0;
+      function updateCarousel(card, nextIndex) {
+        const track = card.querySelector(".carousel-track");
+        const slides = card.querySelectorAll(".carousel-slide");
+        const thumbs = card.querySelectorAll(".thumb");
+        const status = card.querySelector(".carousel-status");
+        const prevBtn = card.querySelector('[data-direction="prev"]');
+        const nextBtn = card.querySelector('[data-direction="next"]');
+        const total = slides.length;
+        const currentIndex = ((nextIndex % total) + total) % total;
 
-        function getPerView() {
-            const w = window.innerWidth;
-            if (w <= 620) return 1;
-            if (w <= 900) return 2;
-            return 3;
-        }
+        card.dataset.currentIndex = String(currentIndex);
+        track.style.transform = "translateX(-" + currentIndex * 100 + "%)";
+        status.textContent = String(currentIndex + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
 
-        function getMaxIdx() {
-            const perView = getPerView();
-            return Math.max(0, screens.length - perView);
-        }
-
-        function clampIndex(i) {
-            const max = getMaxIdx();
-            if (i < 0) return 0;
-            if (i > max) return max;
-            return i;
-        }
-
-        function renderDots() {
-            const maxIdx = getMaxIdx(); // number of valid positions
-            dotsWrap.innerHTML = Array.from({ length: maxIdx + 1 })
-            .map(
-                (_, i) =>
-                `<button class="dot" type="button" aria-label="Go to position ${i + 1}" data-dot="${i}"></button>`
-            )
-            .join("");
-        }
-
-        function update() {
-            idx = clampIndex(idx);
-
-            const perView = getPerView();
-            const step = 100 / perView; // move by one card
-
-            slides.style.transform = `translateX(${-idx * step}%)`;
-
-            const dots = Array.from(dotsWrap.querySelectorAll("[data-dot]"));
-            dots.forEach((d) => d.classList.toggle("active", Number(d.dataset.dot) === idx));
-
-            // optional: disable buttons at edges
-            const max = getMaxIdx();
-            prev.disabled = idx === 0;
-            next.disabled = idx === max;
-        }
-
-        // dots need to match perView, so render once then update
-        renderDots();
-        update();
-
-        prev.addEventListener("click", () => {
-            idx = clampIndex(idx - 1);
-            update();
+        thumbs.forEach((thumb, index) => {
+          thumb.setAttribute("aria-current", index === currentIndex ? "true" : "false");
         });
 
-        next.addEventListener("click", () => {
-            idx = clampIndex(idx + 1);
-            update();
-        });
-
-        dotsWrap.addEventListener("click", (e) => {
-            const btn = e.target.closest("[data-dot]");
-            if (!btn) return;
-            idx = Number(btn.dataset.dot);
-            update();
-        });
-
-        // prevent resize listener stacking when modal reopens
-        if (screensResizeController) screensResizeController.abort();
-        screensResizeController = new AbortController();
-        window.addEventListener(
-            "resize",
-            () => {
-            renderDots();
-            update();
-            },
-            { signal: screensResizeController.signal }
-        );
+        if (prevBtn && nextBtn && total <= 1) {
+          prevBtn.disabled = true;
+          nextBtn.disabled = true;
         }
+      }
 
-      function openProject(id) {
-        const p = projects.find((x) => x.id === id);
-        if (!p) return;
+      function openModal(cardIndex, imageIndex) {
+        const card = projectCards[cardIndex];
+        const images = card.querySelectorAll(".carousel-slide img");
+        const title = card.dataset.projectTitle;
 
-        modalTitle.textContent = p.title;
-        modalSummary.textContent = p.summary;
-        modalProblem.textContent = p.problem;
-        modalBuilt.textContent = p.built;
-        modalTools.innerHTML = (p.tools || []).map((t) => `<span class="toolTag">${t}</span>`).join("");
+        modalCardIndex = cardIndex;
+        modalImageIndex = imageIndex;
+        modalImage.src = images[imageIndex].src;
+        modalImage.alt = images[imageIndex].alt;
+        modalTitle.textContent =
+          title +
+          " - " +
+          String(imageIndex + 1).padStart(2, "0") +
+          " / " +
+          String(images.length).padStart(2, "0");
 
-        modalRepo.href = p.repoUrl || "#";
-        modalLive.href = p.liveUrl || "#";
-
-        renderScreens(p);
-
-        modalOverlay.setAttribute("data-open", "true");
+        modal.dataset.open = "true";
+        modal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
-        history.pushState({}, "", `#project/${id}`);
       }
 
       function closeModal() {
-        modalOverlay.setAttribute("data-open", "false");
+        modal.dataset.open = "false";
+        modal.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
-        history.pushState({}, "", "#projects");
       }
 
-      grid.addEventListener("click", (e) => {
-        const btn = e.target.closest("[data-open]");
-        if (!btn) return;
-        openProject(btn.getAttribute("data-open"));
+      function stepModal(direction) {
+        const card = projectCards[modalCardIndex];
+        const images = card.querySelectorAll(".carousel-slide img");
+        const total = images.length;
+
+        modalImageIndex = (modalImageIndex + direction + total) % total;
+        updateCarousel(card, modalImageIndex);
+        openModal(modalCardIndex, modalImageIndex);
+      }
+
+      projectCards.forEach((card, cardIndex) => {
+        card.dataset.currentIndex = "0";
+        updateCarousel(card, 0);
+
+        const prevBtn = card.querySelector('[data-direction="prev"]');
+        const nextBtn = card.querySelector('[data-direction="next"]');
+        const previewBtn = card.querySelector(".preview-btn");
+        const thumbs = card.querySelectorAll(".thumb");
+        const images = card.querySelectorAll(".carousel-slide img");
+
+        prevBtn.addEventListener("click", () => {
+          updateCarousel(card, Number(card.dataset.currentIndex) - 1);
+        });
+
+        nextBtn.addEventListener("click", () => {
+          updateCarousel(card, Number(card.dataset.currentIndex) + 1);
+        });
+
+        previewBtn.addEventListener("click", () => {
+          openModal(cardIndex, Number(card.dataset.currentIndex));
+        });
+
+        thumbs.forEach((thumb, thumbIndex) => {
+          thumb.addEventListener("click", () => {
+            updateCarousel(card, thumbIndex);
+          });
+        });
+
+        images.forEach((image, imageIndex) => {
+          image.addEventListener("click", () => {
+            updateCarousel(card, imageIndex);
+            openModal(cardIndex, imageIndex);
+          });
+        });
       });
 
-      closeModalBtn.addEventListener("click", closeModal);
-      modalOverlay.addEventListener("click", (e) => {
-        if (e.target === modalOverlay) closeModal();
+      modalClose.addEventListener("click", closeModal);
+      modalPrev.addEventListener("click", () => stepModal(-1));
+      modalNext.addEventListener("click", () => stepModal(1));
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
       });
 
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modalOverlay.getAttribute("data-open") === "true") closeModal();
-      });
-
-      function checkDeepLink() {
-        const hash = window.location.hash;
-        if (hash.startsWith("#project/")) {
-          const id = hash.replace("#project/", "").trim();
-          openProject(id);
+      document.addEventListener("keydown", (event) => {
+        if (modal.dataset.open !== "true") {
           return;
         }
-        if (hash && hash.length > 1) scrollToHash(hash);
-      }
 
-      window.addEventListener("popstate", checkDeepLink);
-      checkDeepLink();
-
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-
-    <script>
-    emailjs.init("QkoOB1yUYMQsd2e0C");
-
-    const form = document.getElementById("contactForm");
-
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        // simple spam filter
-        if (form.company.value) return;
-
-        emailjs.sendForm(
-        "service_rxhqcfo",
-        "template_bcsrewa",
-        this
-        ).then(
-        () => {
-            alert("Message sent! I’ll reply soon.");
-            form.reset();
-        },
-        (err) => {
-            alert("Failed to send. Try again later.");
-            console.error(err);
+        if (event.key === "Escape") {
+          closeModal();
         }
-        );
-    });
-    </script>
 
+        if (event.key === "ArrowLeft") {
+          stepModal(-1);
+        }
+
+        if (event.key === "ArrowRight") {
+          stepModal(1);
+        }
+      });
+    </script>
   </body>
 </html>
