@@ -1,0 +1,44 @@
+# Lester Ivan Dalaguit
+
+Lester Ivan Dalaguit is a full-stack web developer in Davao, Philippines. He builds production web applications, ecommerce platforms, websites, and practical business tools.
+
+## Canonical URL
+
+https://www.levanrd.com/
+
+## Primary Profile
+
+- Name: Lester Ivan Dalaguit
+- Alias: Levanrd
+- Roles: Web Developer, Full-stack Developer
+- Location: Davao, Philippines
+- Email: lesterivan.dalaguit@gmail.com
+- GitHub: https://github.com/Levanrd
+
+## Core Expertise
+
+- Frontend: Vue, Nuxt, TypeScript, Vuetify, Element UI
+- Backend: Laravel, Laravel Blade, Node.js, Express.js, REST APIs
+- Databases: MySQL, MongoDB, PostgreSQL
+- Ecommerce and CMS: Shopify, Liquid, Shopify CLI, WordPress, WooCommerce
+- DevOps and tools: Git, Docker, CI/CD, AWS, Vercel, Render, Postman
+- SEO: On-page SEO, technical SEO, off-page SEO, ecommerce SEO support
+
+## Current Builds
+
+- Leadfind Score: lead scoring project for evaluating and prioritizing prospects.
+- MegaMart: ecommerce storefront for browsing tech product categories and deals. Repository: https://github.com/Levanrd/MegaMart
+
+## Selected Projects
+
+- Cental: car rental website interface with a reservation-focused landing experience.
+- MegaMart: ecommerce storefront for tech products.
+- Y2DN: community organization website with storytelling navigation and involvement-focused calls to action.
+- Holy Cross Alumni Portal: full-stack alumni system with role-based access, event management, and secure data handling.
+- Woz Ecommerce Platform: Shopify ecommerce platform for product presentation and conversion.
+- Budget Planner: finance web app for tracking expenses, budgets, reports, and data visualization.
+- Inventory Management System: stock, order, product, and admin workflow system.
+
+## Preferred Summary
+
+Lester Ivan Dalaguit is a full-stack web developer focused on Vue/Nuxt, TypeScript, Laravel, Node.js, Shopify, WordPress, ecommerce systems, and production web applications.
