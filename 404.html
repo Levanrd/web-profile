@@ -1,88 +1,266 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/theme-toggle.js"></script>
-    <script src="./js/date-time.js"></script>
-    <script>
-      function openPopup(url, title) {
-        const popupWidth = 800;
-        const popupHeight = 600;
-        const left = (window.screen.width / 2) - (popupWidth / 2);
-        const top = (window.screen.height / 2) - (popupHeight / 2);
-        window.open(
-            url, 
-            title, 
-            `width=${popupWidth},height=${popupHeight},top=${top},left=${left},resizable,scrollbars=yes,status=no`
-        );
-      }
-    </script>
-</head>
-<body>
-    <header class="header-container">
-        <div>
-            <h1>LESTER</h1>
-        </div>
-        <nav>
-            <a href="./index.html">Home</a>
-            <a href="./about.html">About</a>
-            <a href="./projects.html">Projects</a>
-            <a href="./contact.html">Contact</a>
-        </nav>
-        <button id="theme-toggle" class="theme-toggle">
-            <span class="mdi mdi-theme-light-dark" style="font-size: 24px;"></span>
-        </button>
-    </header>
-
-    <main class="error-container">
-        <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <a href="./index.html" class="cta-button">Back to Home</a>
-    </main>
-
-    <footer>
-      <p>&copy; Lester Ivan Dalaguit | <span id="current-datetime"></span></p>
-      <a onclick="openPopup('https://www.linkedin.com/in/lester-ivan-dalaguit-aa0b15240/', 'LinkedIn')" href="#">LinkedIn</a>
-      <a onclick="openPopup('https://github.com/Levanrd', 'GitHub')" href="#">GitHub</a>
-    </footer>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Lester Ivan Dalaguit</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="./svg/vue.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        .error-container {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+      :root {
+        --bg: #06070d;
+        --bg-deep: #030409;
+        --surface: #17181d;
+        --text: #e7eaf2;
+        --muted: #a7adbd;
+        --faint: #6f7484;
+        --line: rgba(255, 255, 255, 0.12);
+        --line-strong: rgba(255, 255, 255, 0.2);
+        --accent: #1a9fff;
+        --accent-soft: rgba(26, 159, 255, 0.16);
+        --accent-line: rgba(26, 159, 255, 0.42);
+        --content: 920px;
+        --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 50% 10%, rgba(26, 159, 255, 0.06), transparent 26rem),
+          linear-gradient(180deg, var(--bg-deep), var(--bg) 42%, #090511 100%);
+        font-family: var(--font);
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        border-bottom: 1px solid var(--line);
+        background: rgba(7, 7, 12, 0.86);
+        backdrop-filter: blur(18px);
+      }
+
+      .header-inner {
+        width: min(var(--content), calc(100% - 32px));
+        min-height: 64px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+      }
+
+      .brand {
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .site-nav a,
+      .button-link {
+        border-radius: 7px;
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: none;
+        transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+      }
+
+      .site-nav a {
+        padding: 11px 12px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible,
+      .button-link:hover,
+      .button-link:focus-visible {
+        color: var(--accent);
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-1px);
+      }
+
+      .error-main {
+        width: min(var(--content), calc(100% - 32px));
+        min-height: calc(100vh - 126px);
+        margin: 0 auto;
+        display: grid;
+        place-items: center;
+        padding: 72px 0;
+      }
+
+      .error-panel {
+        width: min(680px, 100%);
+        display: grid;
+        gap: 20px;
+        text-align: center;
+        animation: page-enter 420ms cubic-bezier(0.65, 0, 0.35, 1) both;
+      }
+
+      .error-code {
+        margin: 0;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: clamp(4.5rem, 16vw, 9rem);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 0.9;
+      }
+
+      .error-panel h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .error-panel p {
+        max-width: 54ch;
+        margin: 0 auto;
+        color: var(--muted);
+        font-size: 1.02rem;
+      }
+
+      .error-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .button-link {
+        min-height: 40px;
+        padding: 0 13px;
+        border: 1px solid var(--line-strong);
+        color: var(--text);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .button-link.primary {
+        border-color: var(--accent-line);
+        color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        width: min(var(--content), calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0;
+        font-size: 0.9rem;
+      }
+
+      @keyframes page-enter {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
         }
 
-        .error-container h1 {
-            font-size: 6rem;
-            margin: 20px 0;
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .header-inner {
+          min-height: auto;
+          padding: 12px 0;
+          align-items: flex-start;
+          flex-direction: column;
         }
 
-        .error-container p {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        .site-nav {
+          flex-wrap: wrap;
         }
 
-        .cta-button {
-            background-color: var(--link-color);
-            color: var(--background-color);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
+        .error-main {
+          min-height: calc(100vh - 172px);
+          padding: 48px 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .error-panel {
+          animation: none;
         }
 
-        .cta-button:hover {
-            background-color: var(--text-color);
-            color: var(--background-color);
+        .site-nav a,
+        .button-link {
+          transition: none;
         }
+      }
     </style>
-</body>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./index.html#home" aria-label="Home">Levanrd</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="./index.html#building">Building</a>
+          <a href="./index.html#projects">Projects</a>
+          <a href="./index.html#resume">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="error-main">
+      <section class="error-panel" aria-labelledby="error-title">
+        <p class="error-code" aria-hidden="true">404</p>
+        <h1 id="error-title">Page not found</h1>
+        <p>
+          This route is not part of the profile anymore. Head back to the main profile or jump straight into the work.
+        </p>
+        <div class="error-actions">
+          <a class="button-link primary" href="./index.html#home">Back Home</a>
+          <a class="button-link" href="./index.html#projects">View Projects</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">&copy; 2026 Levanrd.</div>
+    </footer>
+  </body>
 </html>
